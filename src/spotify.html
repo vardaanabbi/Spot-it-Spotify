@@ -4,10 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="output.css">
-    <title>Spotify</title>
+    <title>Spotify - Web Player: Music for everyone</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,500&display=swap');
+    </style>
 </head>
-<body class="">
-    <h1>  Hello </h1>
-    
+<body class="bg-black text-white">
+     <div class="main flex bg-black">
+            <div class="left w-1/5  m-2.5">
+                <div class="home bg-[#121212] text-white mb-2 p-2.5 rounded-sm">
+                    <div class="logo">
+                        <img class="invert" src="images/logo.svg" alt="spotify">
+                    </div> 
+                    <ul class="list-none w-4 pt-4">
+                        <li class="w-4 flex gap-2 font-bold"> <img class="invert" src="images/home.svg" alt="Home"> Home </li>
+                        <li class="w-4 flex gap-2 font-bold"> <img class="invert" src="images/search.svg" alt="Search"> Search </li>
+                    </ul>
+                </div>
+
+                <div class="library min-h-[75vh] bg-[#121212] text-white p-2.5 relative rounded-sm ">
+                    <div class="heading flex gap-4">
+                        <img class="invert w-4" src="/src/images/library.svg" alt="lib icon">
+                        <h2 class="font-bold"> Your Library </h2>
+                    </div>
+                    <div class="footer flex text-[12px] gap-2 text-gray-500 absolute bottom-3 flex-wrap">
+                    <div><a href="https://www.spotify.com/jp/legal/"><span>Legal</span></a></div>
+                    <div><a href="https://www.spotify.com/jp/privacy/"><span>Privacy Center</span></a></div>
+                    <div><a href="https://www.spotify.com/jp/legal/privacy-policy/"><span>Privacy Policy</span></a>
+                    </div>
+                    <div><a href="https://www.spotify.com/jp/legal/cookies-policy/"><span>Cookies</span></a></div>
+                    <div><a href="https://www.spotify.com/jp/legal/privacy-policy/#s3"><span>About Ads</span></a></div>
+                    <div><a href="https://www.spotify.com/jp/accessibility/"><span>Accessibility</span></a></div>
+                </div>
+                </div>
+            </div>
+            <div class="right w-4/5 m-2.5 relative">
+                <div class="header flex justify-between p-1 bg-[rgb(34,34,34)] mt-0.5">
+                    <div class="nav flex">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M15 6L9.70711 11.2929C9.37377 11.6262 9.20711 11.7929 9.20711 12C9.20711 12.2071 9.37377 12.3738 9.70711 12.7071L15 18"
+                                stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9 18L14.2929 12.7071C14.6262 12.3738 14.7929 12.2071 14.7929 12C14.7929 11.7929 14.6262 11.6262 14.2929 11.2929L9 6"
+                                stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="button px-2 font-bold">
+                        <button class="text-gray-500 hover:text-white hover:text-[1.1 rem] cursor-pointer mx-1">Sign Up</button>
+                        <button class="mx-1 bg-white rounded-xl text-black px-2 w-16 hover:w-16.5 hover:txt-[1.1 rem] ">Login</button>
+                    </div>
+                </div>
+
+                <div class="playlists">
+                    <h1 class="font-bold pt-2">Spotify Playlists</h1>
+                    <div class="card_container pt-2.5 flex flex-wrap gap-4 m-6  max-h-[70vh] overflow-y-scroll scrollbar-sexy">
+                        <div class="card w-60.5 p-2.5 bg-[#252525] relative group">
+
+                            <div class="play w-7 h-7 bg-[#1fdf64] p-1 flex rounded-[50%] justify-center top-50 right-4 absolute opacity-0 transition-all ease-out duration-500 group-hover:opacity-100 group-hover:top-46 ">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 4V21L19 12L5 4Z"
+                                stroke="#141B34" fill="#000" stroke-width="1.5"
+                                stroke-linejoin="round" />
+                                </svg>
+                            </div>
+
+                            <img class="object-contain w-full" src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" alt="">
+                            <h2 class="font-bold">Happy Hits !</h2>
+                            <p>Hits to boost your mood and fill you with happiness!</p>
+                        </div>
+
+                        <div class="card w-60.5 p-2.5 bg-[#252525] relative group">
+
+                            <div class="play w-7 h-7 bg-[#1fdf64] p-1 flex rounded-[50%] justify-center top-50 right-4 absolute opacity-0 transition-all ease-out duration-500 group-hover:opacity-100 group-hover:top-46 ">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 4V21L19 12L5 4Z"
+                                stroke="#141B34" fill="#000" stroke-width="1.5"
+                                stroke-linejoin="round" />
+                                </svg>
+                            </div>
+
+                            <img class="object-contain w-full" src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" alt="">
+                            <h2 class="font-bold">Happy Hits !</h2>
+                            <p>Hits to boost your mood and fill you with happiness!</p>
+                        </div>
+
+                        
+
+                    <div class="playbar absolute bottom-0 bg-cyan-700 p-3 w-[93%] m-auto">
+                        <div class="song_btns flex justify-center gap-2.5">
+                            <div class="songInfo"></div>
+                            <div class="prev"> <img src="/src/images/prev.svg" alt=""></div>
+                            <div class="play"> <img src="/src/images/play.svg" alt=""></div>
+                            <div class="next"> <img src="/src/images/next.svg" alt=""></div>
+                            <div class="songTime"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+     </div>
+     <script src="/src/spotify.js"></script>
 </body>
 </html>

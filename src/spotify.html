@@ -9,9 +9,9 @@
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,500&display=swap');
     </style>
 </head>
-<body class="bg-black text-white">
+<body class="bg-black text-white ">
      <div class="main flex bg-black">
-            <div class="left w-1/5  m-2.5">
+            <div class="left w-1/4  m-2.5">
                 <div class="home bg-[#121212] text-white mb-2 p-2.5 rounded-sm">
                     <div class="logo">
                         <img class="invert" src="images/logo.svg" alt="spotify">
@@ -27,7 +27,14 @@
                         <img class="invert w-4" src="/src/images/library.svg" alt="lib icon">
                         <h2 class="font-bold"> Your Library </h2>
                     </div>
-                    <div class="footer flex text-[12px] gap-2 text-gray-500 absolute bottom-3 flex-wrap">
+
+                    <div class="songList h-79 scrollbar-sexy overflow-y-auto overflow-x-hidden mb-7">
+                        <ol class=" p-1 cursor-pointer mt-2 "
+
+                        </ol>
+                    </div>
+
+                    <div class="footer flex text-[12px] gap-2 text-gray-500 relative bottom-3 flex-wrap">
                     <div><a href="https://www.spotify.com/jp/legal/"><span>Legal</span></a></div>
                     <div><a href="https://www.spotify.com/jp/privacy/"><span>Privacy Center</span></a></div>
                     <div><a href="https://www.spotify.com/jp/legal/privacy-policy/"><span>Privacy Policy</span></a>
@@ -38,7 +45,7 @@
                 </div>
                 </div>
             </div>
-            <div class="right w-4/5 m-2.5 relative">
+            <div class="right w-3/4 m-2.5 relative">
                 <div class="header flex justify-between p-1 bg-[rgb(34,34,34)] mt-0.5">
                     <div class="nav flex">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -93,15 +100,16 @@
                             <p>Hits to boost your mood and fill you with happiness!</p>
                         </div>
 
-                        
+                    <div class="playbar bottom-6 bg-[#2b2a2a] py-3 w-[69%] m-auto fixed rounded-3xl">
+                        <div class="song_btns grid grid-cols-3 items-center w-full px-3">
+                            <div class="songInfo"> INFO </div>
+                            <div class="play flex justify-center">
+                                <div class="prev"> <img class="invert" src="/src/images/prev.svg" alt=""></div>
+                                <div class="play"> <img class="invert"  src="/src/images/play.svg" alt=""></div>
+                                <div class="next"> <img class="invert"  src="/src/images/next.svg" alt=""></div>
+                            </div>
 
-                    <div class="playbar absolute bottom-0 bg-cyan-700 p-3 w-[93%] m-auto">
-                        <div class="song_btns flex justify-center gap-2.5">
-                            <div class="songInfo"></div>
-                            <div class="prev"> <img src="/src/images/prev.svg" alt=""></div>
-                            <div class="play"> <img src="/src/images/play.svg" alt=""></div>
-                            <div class="next"> <img src="/src/images/next.svg" alt=""></div>
-                            <div class="songTime"></div>
+                            <div class="songTime text-right">TIME </div>
                         </div>
                     </div>
                 </div>

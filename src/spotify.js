@@ -87,20 +87,12 @@ playbtn.addEventListener("click" , ()=>{
         playbtn.src = "/src/images/play.svg"
     }
 } 
-
 )
-
- // add event listener to seekbar : 
-
- document.querySelector(".seekbar").addEventListener("click" , (e)=> {
-    let percent = (e.offsetX / e.currentTarget.getBoundingClientRect().width)
-    document.querySelector(".circle").style.left = percent * 100 + "%" ;
-
   // here what wehave done is we have added an event listener on seekbar which is on clicking we extracted offset which is coordinates in x of that click and boundingClientRect se bhi yahiii with ,ight , coordinates vagera milte hain , use se humne width le li aur left ko us percentage pe set kr diya .   
 
   // changing song current time using this : 
 
-currentSong.currentTime = ((currentSong.duration)* percent)/100 })
+
 
  //  listen for time Update : 
 
@@ -108,9 +100,25 @@ currentSong.currentTime = ((currentSong.duration)* percent)/100 })
  document.querySelector(".circle").style.left = (currentSong.currentTime/currentSong.duration) * 100 + "%" ;  
  })
 
+  // add event listener to seekbar : 
 
+ document.querySelector(".seekbar").addEventListener("click" , (e)=> {
+    let percent = (e.offsetX / e.target.getBoundingClientRect().width)*100
+    document.querySelector(".circle").style.left = percent + "%" ;
+    currentSong.currentTime = ((currentSong.duration)* percent)/100 
+    })
+
+// adding event listener to hamburger : 
+
+document.querySelector(".hamburger").addEventListener("click" , ()=>{const left = document.querySelector(".left") ; 
+    left.style.backgroundColor = "black" ; left.style.left = "0" ; left.style.width = "36%"
+    // document.querySelector(".left").style.bg = black ; document.querySelector(".left").style.width = full ;
+ })
+
+document.querySelector(".close").addEventListener("click" , ()=>{
+    document.querySelector(".left").style.left = "-100%" 
+})
 main() // show all the songs in the playlist section 
 
 
-
-
+ 

@@ -11,7 +11,10 @@
 </head>
 <body class="bg-black text-white ">
      <div class="main flex bg-black">
-            <div class="left w-1/4  m-2.5">
+            <div class="left w-1/4  m-2.5 max-[1100px]:left-[-120%] max-[1100px]:absolute max-[1100px]:z-10 max-[1100px]:transition-all duration-300">
+                <div class="close absolute top-4 left-70 max-[1100px]:block hidden">
+                        <img class="invert" src="/src/images/close.svg" alt="">
+                    </div>
                 <div class="home bg-[#121212] text-white mb-2 p-2.5 rounded-sm">
                     <div class="logo">
                         <img class="invert w-36" src="images/logo.svg" alt="spotify">
@@ -45,9 +48,12 @@
                 </div>
                 </div>
             </div>
-            <div class="right w-3/4 m-2.5 relative">
+            <div class="right w-3/4 m-2.5 relative max-[1200px]:w-full">
                 <div class="header flex justify-between p-1 bg-[rgb(34,34,34)] mt-0.5">
                     <div class="nav flex">
+                        <div class="hamburger hidden max-[1100px]:block">
+                            <img class="invert" src="/src/images/hamburger.svg" alt="">
+                        </div>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M15 6L9.70711 11.2929C9.37377 11.6262 9.20711 11.7929 9.20711 12C9.20711 12.2071 9.37377 12.3738 9.70711 12.7071L15 18"
@@ -100,7 +106,7 @@
                             <p>Hits to boost your mood and fill you with happiness!</p>
                         </div>
 
-                    <div class="playbar bottom-6 bg-[#3e3939] py-3 w-[69%] m-auto fixed rounded-3xl">
+                    <div class="playbar bottom-6 bg-[#3e3939] py-3 w-[69%] m-auto fixed rounded-3xl max-[1200px]:w-[94%]">
                         <div class="seekbar w-[90%] m-auto absolute bottom-2 left-10 h-1 bg-white rounded-2xl cursor-pointer">
                             <div class="circle bg-white rounded-3xl absolute h-3 w-3 -bottom-1" ></div>
                         </div>

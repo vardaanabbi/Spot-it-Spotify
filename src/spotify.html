@@ -11,8 +11,9 @@
 </head>
 <body class="bg-black text-white ">
      <div class="main flex bg-black">
-            <div class="left w-1/4  m-2.5 max-[1100px]:left-[-120%] max-[1100px]:absolute max-[1100px]:z-10 max-[1100px]:transition-all duration-300">
-                <div class="close absolute top-4 left-70 max-[1100px]:block hidden">
+            <div class="left w-1/4 m-2 max-[1200px]:left-[-120%] max-[1200px]:absolute max-[1200px]:z-10 max-[1200px]:transition-all duration-300 max-[400px]:min-w-[80%] max-[1200px]:m-0 ">
+                <!-- calc(100vw - 20px or whatever jitna margin padding ke liye jagah deni hai very useful for consistent dimensions , vw vagera use krke consisitent dimensions rhengi  -->
+                <div class="close absolute hidden top-4 left-70 max-[1200px]:block">
                         <img class="invert" src="/src/images/close.svg" alt="">
                     </div>
                 <div class="home bg-[#121212] text-white mb-2 p-2.5 rounded-sm">
@@ -48,7 +49,7 @@
                 </div>
                 </div>
             </div>
-            <div class="right w-3/4 m-2.5 relative max-[1200px]:w-full">
+            <div class="right w-3/4 my-2 relative max-[1200px]:w-full max-[1200px]:m-0">
                 <div class="header flex justify-between p-1 bg-[rgb(34,34,34)] mt-0.5">
                     <div class="nav flex">
                         <div class="hamburger hidden max-[1100px]:block">
@@ -72,9 +73,9 @@
                 </div>
 
                 <div class="playlists">
-                    <h1 class="font-bold pt-2">Spotify Playlists</h1>
-                    <div class="card_container pt-2.5 flex flex-wrap gap-4 m-6  max-h-[70vh] overflow-y-scroll scrollbar-sexy">
-                        <div class="card w-60.5 p-2.5 bg-[#252525] relative group">
+                    <h1 class="font-bold pt-2 ml-2">Spotify Playlists</h1>
+                    <div class="card_container pt-2.5 flex flex-wrap gap-3 m-3 max-h-[70vh] overflow-y-scroll scrollbar-sexy max-[520px]:justify-center max-[520px]:m-0 ">
+                        <div class="card w-60.5 p-2.5 bg-[#252525] relative group max-[520px]:w-[96vw]">
 
                             <div class="play w-7 h-7 bg-[#1fdf64] p-1 flex rounded-[50%] justify-center top-50 right-4 absolute opacity-0 transition-all ease-out duration-500 group-hover:opacity-100 group-hover:top-46 ">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -90,7 +91,7 @@
                             <p>Hits to boost your mood and fill you with happiness!</p>
                         </div>
 
-                        <div class="card w-60.5 p-2.5 bg-[#252525] relative group">
+                        <div class="card w-60.5 p-2.5 bg-[#252525] relative group max-[520px]:w-[96vw]">
 
                             <div class="play w-7 h-7 bg-[#1fdf64] p-1 flex rounded-[50%] justify-center top-50 right-4 absolute opacity-0 transition-all ease-out duration-500 group-hover:opacity-100 group-hover:top-46 ">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -106,16 +107,16 @@
                             <p>Hits to boost your mood and fill you with happiness!</p>
                         </div>
 
-                    <div class="playbar bottom-6 bg-[#3e3939] py-3 w-[69%] m-auto fixed rounded-3xl max-[1200px]:w-[94%]">
-                        <div class="seekbar w-[90%] m-auto absolute bottom-2 left-10 h-1 bg-white rounded-2xl cursor-pointer">
+                    <div class="playbar bottom-6 bg-[#3e3939] m-auto py-3 w-[calc(70vw-60px)] fixed rounded-3xl max-[1200px]:w-[calc(93vw-2px)] min-h-2 ">
+                        <div class="seekbar w-[90%] absolute bottom-2 left-8 h-1 bg-white rounded-2xl cursor-pointer max-[1200px]:max-w-[90%] max-[700px]:left-4">
                             <div class="circle bg-white rounded-3xl absolute h-3 w-3 -bottom-1" ></div>
                         </div>
                         <div class="song_btns grid grid-cols-3 items-center w-full px-3 pb-2">
                             <div class="sName text-white"> </div>
                             <div class="play flex justify-center cursor-pointer">
-                                <div class="prev "> <img id="previous" class="invert" src="/src/images/prev.svg" alt=""></div>
-                                <div class="play"> <img id="playbtn" class="invert"  src="/src/images/play.svg" alt=""></div>
-                                <div class="next"> <img id="nextbtn" class="invert"  src="/src/images/next.svg" alt=""></div>
+                                <div class="prev "> <img id="previous" class="invert w-9" src="/src/images/prev.svg" alt=""></div>
+                                <div class="play"> <img id="playbtn" class="invert w-9"  src="/src/images/play.svg" alt=""></div>
+                                <div class="next"> <img id="nextbtn" class="invert w-9"  src="/src/images/next.svg" alt=""></div>
                             </div>
 
                             <div class="songTime text-white text-right"> </div>

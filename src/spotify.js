@@ -1,4 +1,5 @@
 let currentSong = new Audio() 
+let songList ; 
 
 function secondsToMinutesSeconds(seconds) {
     if (isNaN(seconds) || seconds < 0) {
@@ -47,7 +48,7 @@ document.querySelector(".songTime").innerHTML = "00 : 00"
 
     async function main(){
 
-    const songList = await getSongs() ; 
+    songList = await getSongs() ; 
     playMusic(songList[0] , true) ; 
 
     let songJS = document.querySelector(".songList").getElementsByTagName("ol")[0];
@@ -55,7 +56,7 @@ document.querySelector(".songTime").innerHTML = "00 : 00"
         songJS.innerHTML += `<li 
     class="flex gap-3 py-3 border-white border rounded-sm my-3 justify-between">
     <img class="invert" src="/src/images/music.svg" alt="">
-    <div class="songInfo flex-1 text-sm shrink min-w-1">
+    <div class="songInfo flex-1 text-sm shrink min-w-1 wrap-break-word ">
     <div class="songName"> ${song.replaceAll("%20", "")}</div>
     </div> 
     <div class="playNow flex gap-3 pr-3">
@@ -118,6 +119,22 @@ document.querySelector(".hamburger").addEventListener("click" , ()=>{const left 
 document.querySelector(".close").addEventListener("click" , ()=>{
     document.querySelector(".left").style.left = "-100%" 
 })
+
+// adding event listeners to previous and next butons : 
+
+previous.addEventListener("click" , ()=> {let index = songList.indexOf(currentSong.src.split("/").slice(-1)[0]) ; 
+    console.log(songList , index ) ; 
+    playMusic(songList[(index-1)%(songList.length)]) ; 
+})
+nextbtn.addEventListener("click" , ()=> {let index = songList.indexOf(currentSong.src.split("/").slice(-1)[0]) ; 
+    console.log(songList , index ) ; 
+    playMusic(songList[(index+1)%(songList.length)]) ; 
+})
+
+// adding event listener to volume range  : 
+
+range.addEventListener("input" , (e)=>{currentSong.volume = parseInt((e.target.value))/100 })
+
 main() // show all the songs in the playlist section 
 
 

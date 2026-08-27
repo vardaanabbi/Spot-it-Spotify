@@ -75,7 +75,7 @@
                 <div class="playlists">
                     <h1 class="font-bold pt-2 ml-2">Spotify Playlists</h1>
                     <div class="card_container pt-2.5 flex flex-wrap gap-3 m-3 max-h-[70vh] overflow-y-scroll scrollbar-sexy max-[520px]:justify-center max-[520px]:m-0 ">
-                        <div class="card w-60.5 p-2.5 bg-[#252525] relative group max-[520px]:w-[96vw]">
+                        <div class="card w-60.5 p-2.5 bg-[#252525] relative group max-[520px]:w-[96vw] hover:bg-[rgb(54,50,50)] hover:cursor-pointer transition-all duration-600">
 
                             <div class="play w-7 h-7 bg-[#1fdf64] p-1 flex rounded-[50%] justify-center top-50 right-4 absolute opacity-0 transition-all ease-out duration-500 group-hover:opacity-100 group-hover:top-46 ">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -91,7 +91,7 @@
                             <p>Hits to boost your mood and fill you with happiness!</p>
                         </div>
 
-                        <div class="card w-60.5 p-2.5 bg-[#252525] relative group max-[520px]:w-[96vw]">
+                        <div class="card w-60.5 p-2.5 bg-[#252525] relative group max-[520px]:w-[96vw] hover:bg-[rgb(54,50,50)] hover:cursor-pointer transition-all duration-600">
 
                             <div class="play w-7 h-7 bg-[#1fdf64] p-1 flex rounded-[50%] justify-center top-50 right-4 absolute opacity-0 transition-all ease-out duration-500 group-hover:opacity-100 group-hover:top-46 ">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -113,13 +113,24 @@
                         </div>
                         <div class="song_btns grid grid-cols-3 items-center w-full px-3 pb-2">
                             <div class="sName text-white"> </div>
-                            <div class="play flex justify-center cursor-pointer">
+                            <div class="play flex justify-center cursor-pointer max-[400px]:pb-7">
                                 <div class="prev "> <img id="previous" class="invert w-9" src="/src/images/prev.svg" alt=""></div>
                                 <div class="play"> <img id="playbtn" class="invert w-9"  src="/src/images/play.svg" alt=""></div>
                                 <div class="next"> <img id="nextbtn" class="invert w-9"  src="/src/images/next.svg" alt=""></div>
                             </div>
 
-                            <div class="songTime text-white text-right"> </div>
+                            <div class="flex-col gap-4 justify-end "> 
+
+                                <div class="volume text-white text-right flex justify-end items-center gap-4 max-[400px]:gap-2 ">
+                                    <img class="invert" src="/src/images/volume.svg" alt="">
+                                    <div class="songTime text-white text-right min-w-6 max-[440px]:text-left"> </div>
+                                </div>
+
+                                <div class="text-end ">
+                                    <input class="max-[500px]:max-w-20 " type="range" name="volume" id="range">
+                                </div>
+                                
+                            </div>
                         </div>
                     </div>
                 </div>

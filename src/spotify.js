@@ -1,5 +1,6 @@
 let currentSong = new Audio() 
 let songList ; 
+let currFolder ; 
 
 function secondsToMinutesSeconds(seconds) {
     if (isNaN(seconds) || seconds < 0) {
@@ -14,27 +15,52 @@ function secondsToMinutesSeconds(seconds) {
     return `${formattedMinutes}:${formattedSeconds}`;
 }
 
-async function getSongs() {
+async function getSongs(folder) {
 
-    let songs = await fetch("http://127.0.0.1:5500/src/songs/");
+    currFolder = folder ;
+    let songs = await fetch(`http://127.0.0.1:5500/src/${currFolder}/`);
     let response = await songs.text();
     // console.log(response)
     let element = document.createElement("div");
     element.innerHTML = response;
     let music = element.getElementsByTagName("a");
 
-    let songList = [];
+    songList = [];
     for (let i = 0; i < music.length; i++) {
         if (music[i].href.endsWith(".mp3")) {
-            songList.push(music[i].href.split("/songs/")[1])
+            songList.push(music[i].href.split(`/${currFolder}/`)[1])
         }
+    } 
+
+    let songJS = document.querySelector(".songList").getElementsByTagName("ol")[0];
+    for (const song of songList) {
+        songJS.innerHTML += `<li 
+    class="flex gap-3 py-3 border-white border rounded-sm my-3 justify-between">
+    <img class="invert" src="/src/images/music.svg" alt="">
+    <div class="songInfo flex-1 text-sm shrink min-w-1">
+    <div class="songName"> ${song.replaceAll("%20", "")}</div>
+    </div> 
+    <div class="playNow flex gap-3 pr-3">
+    <span class="w-10 text-sm mt-3">PlayNow</span>
+    <img class="invert" src="/src/images/play.svg" alt="">
+    </div>
+    </li>`
+
     }
-    return songList ; 
+
+
+    // event listener to each song : 
+
+Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach((e)=> {e.addEventListener("click" , element => {console.log(e.querySelector(".songInfo").firstElementChild.innerHTML)
+playMusic(e.querySelector(".songInfo").firstElementChild.innerHTML.trim())
+})})
+
+return songList ; 
 }
 
 const playMusic = (track , pause = false)=> 
 {
-currentSong.src = ("songs/" + track)
+currentSong.src = (`${currFolder}/` + track)
 if(!pause) 
 {
 currentSong.play() ; 
@@ -48,35 +74,12 @@ document.querySelector(".songTime").innerHTML = "00 : 00"
 
     async function main(){
 
-    songList = await getSongs() ; 
+    await getSongs("songs/punjabi") ; 
     playMusic(songList[0] , true) ; 
 
-    let songJS = document.querySelector(".songList").getElementsByTagName("ol")[0];
-    for (const song of songList) {
-        songJS.innerHTML += `<li 
-    class="flex gap-3 py-3 border-white border rounded-sm my-3 justify-between">
-    <img class="invert" src="/src/images/music.svg" alt="">
-    <div class="songInfo flex-1 text-sm shrink min-w-1 wrap-break-word ">
-    <div class="songName"> ${song.replaceAll("%20", "")}</div>
-    </div> 
-    <div class="playNow flex gap-3 pr-3">
-    <span class="w-10 text-sm mt-3">PlayNow</span>
-    <img class="invert" src="/src/images/play.svg" alt="">
-    </div>
-    </li>`
+    // attach event listener to play buttons :
 
-    }
-
- // event listener to each song : 
-
-Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach((e)=> {e.addEventListener("click" , element => {console.log(e.querySelector(".songInfo").firstElementChild.innerHTML)
-playMusic(e.querySelector(".songInfo").firstElementChild.innerHTML.trim())
-})})
-    }
-
-// attach event listener to play buttons :
-
-playbtn.addEventListener("click" , ()=>{
+    playbtn.addEventListener("click" , ()=>{
     if(currentSong.paused)
     {
         currentSong.play()
@@ -89,11 +92,10 @@ playbtn.addEventListener("click" , ()=>{
     }
 } 
 )
+
   // here what wehave done is we have added an event listener on seekbar which is on clicking we extracted offset which is coordinates in x of that click and boundingClientRect se bhi yahiii with ,ight , coordinates vagera milte hain , use se humne width le li aur left ko us percentage pe set kr diya .   
 
   // changing song current time using this : 
-
-
 
  //  listen for time Update : 
 
@@ -109,7 +111,7 @@ playbtn.addEventListener("click" , ()=>{
     currentSong.currentTime = ((currentSong.duration)* percent)/100 
     })
 
-// adding event listener to hamburger : 
+    // adding event listener to hamburger : 
 
 document.querySelector(".hamburger").addEventListener("click" , ()=>{const left = document.querySelector(".left") ; 
     left.style.backgroundColor = "black" ; left.style.left = "0" ; left.style.width = "36%"
@@ -135,7 +137,14 @@ nextbtn.addEventListener("click" , ()=> {let index = songList.indexOf(currentSon
 
 range.addEventListener("input" , (e)=>{currentSong.volume = parseInt((e.target.value))/100 })
 
+// load the playlist whenever card is clicked
+
+// one important distinction between target and currentTarget ; target : agar kahi click kr rhe ho to jaha click kiya vaha ki info , curratasrget me if you click somewhere and that s inside your target where you have applied event listener then currenttarget me vahi element ki info milegi 
+Array.from(document.getElementsByClassName("card")).forEach((e)=>{e.addEventListener("click", (item)=>{console.log(item.currentTarget.dataset.folder)}) })
+
+}
+
 main() // show all the songs in the playlist section 
 
 
- 
+

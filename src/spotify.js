@@ -40,7 +40,7 @@ async function getSongs(folder) {
     class="flex gap-3 py-3 border-white border rounded-sm my-3 justify-between">
     <img class="invert" src="/src/images/music.svg" alt="">
     <div class="songInfo flex-1 text-sm shrink min-w-1">
-    <div class="songName"> ${song.replaceAll("%20", "")}</div>
+    <div class="songName break-all"> ${song.replaceAll("%20", "")}</div>
     </div> 
     <div class="playNow flex gap-3 pr-3">
     <span class="w-10 text-sm mt-3">PlayNow</span>
@@ -53,7 +53,7 @@ async function getSongs(folder) {
 
     // event listener to each song : 
 
-Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach((e)=> {e.addEventListener("click" , element => {console.log(e.querySelector(".songInfo").firstElementChild.innerHTML)
+Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach((e)=> {e.addEventListener("click" , (element) => {console.log(e.querySelector(".songInfo").firstElementChild.innerHTML)
 playMusic(e.querySelector(".songInfo").firstElementChild.innerHTML.trim())
 })})
 

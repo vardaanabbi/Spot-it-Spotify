@@ -11,14 +11,14 @@
 </head>
 <body class="bg-black text-white ">
      <div class="main flex bg-black">
-            <div class="left w-1/4 m-2 max-[1200px]:left-[-120%] max-[1200px]:absolute max-[1200px]:z-10 max-[1200px]:transition-all duration-300 max-[400px]:min-w-[80%] max-[1200px]:m-0 ">
+            <div class="left w-1/4 m-2 max-[1200px]:left-[-120%] max-[1200px]:absolute max-[1200px]:z-10 max-[1200px]:transition-all duration-300 max-[400px]:min-w-[80%] max-[1200px]:m-0 max-[700px]:min-w-[60%]">
                 <!-- calc(100vw - 20px or whatever jitna margin padding ke liye jagah deni hai very useful for consistent dimensions , vw vagera use krke consisitent dimensions rhengi  -->
-                <div class="close absolute hidden top-4 left-70 max-[1200px]:block">
-                        <img class="invert" src="/src/images/close.svg" alt="">
-                    </div>
+
                 <div class="home bg-[#121212] text-white mb-2 p-2.5 rounded-sm">
-                    <div class="logo">
+                    <div class="logo flex justify-between">
                         <img class="invert w-36" src="images/logo.svg" alt="spotify">
+                        
+                        <img class="invert close hidden max-[1200px]:block" src="/src/images/close.svg" alt="">
                     </div> 
                     <ul class="list-none w-4 pt-4">
                         <li class="w-4 flex gap-2 font-bold"> <img class="invert" src="images/home.svg" alt="Home"> Home </li>
@@ -52,7 +52,7 @@
             <div class="right w-3/4 my-2 relative max-[1200px]:w-full max-[1200px]:m-0">
                 <div class="header flex justify-between p-1 bg-[rgb(34,34,34)] mt-0.5">
                     <div class="nav flex">
-                        <div class="hamburger hidden max-[1100px]:block">
+                        <div class="hamburger hidden max-[1200px]:block">
                             <img class="invert" src="/src/images/hamburger.svg" alt="">
                         </div>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -74,9 +74,9 @@
 
                 <div class="playlists">
                     <h1 class="font-bold pt-2 ml-2">Spotify Playlists</h1>
-                    <div class="card_container pt-2.5 flex flex-wrap gap-3 m-3 max-h-[70vh] overflow-y-scroll scrollbar-sexy max-[520px]:justify-center max-[520px]:m-0 ">
+                    <div class="card_container pt-2.5 flex flex-wrap gap-3 m-3 max-[500px]:max-h-[calc(78vh-12px)] max-[1024px]:max-h-[calc(70vh-12px)] min-[1025px]:max-h-[calc(67vh-12px)] overflow-y-scroll scrollbar-sexy max-[520px]:justify-center max-[520px]:m-0 ">
 
-                    <div class="playbar bottom-6 bg-[#3e3939] m-auto py-3 w-[calc(70vw-60px)] fixed rounded-3xl max-[1200px]:w-[calc(93vw-2px)] min-h-2 z-0 ">
+                    <div class="playbar bottom-6 bg-[#3e3939] m-auto py-3 w-[calc(70vw-60px)] fixed rounded-3xl max-[1200px]:w-[calc(93vw-2px)] min-h-2 z-50 ">
                         <div class="seekbar w-[90%] absolute bottom-2 left-8 h-1 bg-white rounded-2xl cursor-pointer max-[1200px]:max-w-[90%] max-[700px]:left-4">
                             <div class="circle bg-white rounded-3xl absolute h-3 w-3 -bottom-1" ></div>
                         </div>

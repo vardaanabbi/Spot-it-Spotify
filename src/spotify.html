@@ -75,39 +75,8 @@
                 <div class="playlists">
                     <h1 class="font-bold pt-2 ml-2">Spotify Playlists</h1>
                     <div class="card_container pt-2.5 flex flex-wrap gap-3 m-3 max-h-[70vh] overflow-y-scroll scrollbar-sexy max-[520px]:justify-center max-[520px]:m-0 ">
-                        <div class="card w-60.5 p-2.5 bg-[#252525] relative group max-[520px]:w-[96vw] hover:bg-[rgb(54,50,50)] hover:cursor-pointer transition-all duration-600">
 
-                            <div class="play w-7 h-7 bg-[#1fdf64] p-1 flex rounded-[50%] justify-center top-50 right-4 absolute opacity-0 transition-all ease-out duration-500 group-hover:opacity-100 group-hover:top-46 ">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 4V21L19 12L5 4Z"
-                                stroke="#141B34" fill="#000" stroke-width="1.5"
-                                stroke-linejoin="round" />
-                                </svg>
-                            </div>
-
-                            <img class="object-contain w-full" src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" alt="">
-                            <h2 class="font-bold">Happy Hits !</h2>
-                            <p>Hits to boost your mood and fill you with happiness!</p>
-                        </div>
-
-                        <div class="card w-60.5 p-2.5 bg-[#252525] relative group max-[520px]:w-[96vw] hover:bg-[rgb(54,50,50)] hover:cursor-pointer transition-all duration-600">
-
-                            <div class="play w-7 h-7 bg-[#1fdf64] p-1 flex rounded-[50%] justify-center top-50 right-4 absolute opacity-0 transition-all ease-out duration-500 group-hover:opacity-100 group-hover:top-46 ">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 4V21L19 12L5 4Z"
-                                stroke="#141B34" fill="#000" stroke-width="1.5"
-                                stroke-linejoin="round" />
-                                </svg>
-                            </div>
-
-                            <img class="object-contain w-full" src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" alt="">
-                            <h2 class="font-bold">Happy Hits !</h2>
-                            <p>Hits to boost your mood and fill you with happiness!</p>
-                        </div>
-
-                    <div class="playbar bottom-6 bg-[#3e3939] m-auto py-3 w-[calc(70vw-60px)] fixed rounded-3xl max-[1200px]:w-[calc(93vw-2px)] min-h-2 ">
+                    <div class="playbar bottom-6 bg-[#3e3939] m-auto py-3 w-[calc(70vw-60px)] fixed rounded-3xl max-[1200px]:w-[calc(93vw-2px)] min-h-2 z-0 ">
                         <div class="seekbar w-[90%] absolute bottom-2 left-8 h-1 bg-white rounded-2xl cursor-pointer max-[1200px]:max-w-[90%] max-[700px]:left-4">
                             <div class="circle bg-white rounded-3xl absolute h-3 w-3 -bottom-1" ></div>
                         </div>
@@ -122,12 +91,12 @@
                             <div class="flex-col gap-4 justify-end "> 
 
                                 <div class="volume text-white text-right flex justify-end items-center gap-4 max-[400px]:gap-2 ">
-                                    <img class="invert" src="/src/images/volume.svg" alt="">
+                                    <img class="invert cursor-pointer" src="/src/images/volume.svg" alt="">
                                     <div class="songTime text-white text-right min-w-6 max-[440px]:text-left"> </div>
                                 </div>
 
                                 <div class="text-end ">
-                                    <input class="max-[500px]:max-w-20 " type="range" name="volume" id="range">
+                                    <input class="max-[500px]:max-w-20 cursor-pointer " type="range" name="volume" id="range">
                                 </div>
                                 
                             </div>

@@ -19,7 +19,7 @@ function secondsToMinutesSeconds(seconds) {
 async function getSongs(folder) {
 
     currFolder = folder ;
-    let songs = await fetch(`http://127.0.0.1:5500/src/${currFolder}/`);
+    let songs = await fetch(`/src/${currFolder}/`);
     let response = await songs.text();
     // console.log(response)
     let element = document.createElement("div");
@@ -29,7 +29,7 @@ async function getSongs(folder) {
     songList = [];
     for (let i = 0; i < music.length; i++) {
         if (music[i].href.endsWith(".mp3")) {
-            songList.push(music[i].href.split(`/${currFolder}/`)[1])
+            songList.push(music[i].href.split(`/${currFolder}/`)[1].trim().replaceAll("%20" , " "))
         }
     } 
 
@@ -40,7 +40,7 @@ async function getSongs(folder) {
     class="flex gap-3 py-3 border-white border rounded-sm my-3 justify-between">
     <img class="invert" src="/src/images/music.svg" alt="">
     <div class="songInfo flex-1 text-sm shrink min-w-1">
-    <div class="songName break-all"> ${song.replaceAll("%20", "")}</div>
+    <div class="songName break-all"> ${decodeURIComponent(song)}</div>
     </div> 
     <div class="playNow flex gap-3 pr-3">
     <span class="w-10 text-sm mt-3">PlayNow</span>
@@ -50,10 +50,9 @@ async function getSongs(folder) {
 
     }
 
-
     // event listener to each song : 
 
-Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach((e)=> {e.addEventListener("click" , (element) => {console.log(e.querySelector(".songInfo").firstElementChild.innerHTML)
+Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach((e)=> {e.addEventListener("click" , () => {console.log(e.querySelector(".songInfo").firstElementChild.innerHTML)
 playMusic(e.querySelector(".songInfo").firstElementChild.innerHTML.trim())
 })})
 
@@ -62,7 +61,7 @@ return songList ;
 
 const playMusic = (track , pause = false)=> 
 {
-currentSong.src = (`${currFolder}/` + track)
+currentSong.src = encodeURI((`${currFolder}/` + track))
 if(!pause) 
 {
 currentSong.play() ; 
@@ -75,7 +74,7 @@ document.querySelector(".songTime").innerHTML = "00 : 00"
 }
 
 async function displayAlbums() {
-    let a = await fetch("http://127.0.0.1:5500/src/songs/") ; 
+    let a = await fetch("/src/songs/") ; 
     let response = await a.text() ; 
     let element = document.createElement("div") ; 
     element.innerHTML = response ; 
@@ -90,11 +89,8 @@ async function displayAlbums() {
             let card_container = document.querySelector(".card_container")
             let folder = (e.href.split("/").splice(-1)[0]) ; 
             // get he meta data of the folder 
-            console.log(folder)
-            let a = await fetch(`http://127.0.0.1:5500/src/songs/${folder}/info.json`)
+            let a = await fetch(`/src/songs/${folder}/info.json`)
             let response = await a.json() ; 
-            console.log(response)
-            
             
             card_container.innerHTML += `<div data-folder="${folder}" class="card w-60.5 p-2.5 bg-[#252525] relative group max-[520px]:w-[96vw] hover:bg-[rgb(54,50,50)] hover:cursor-pointer transition-all duration-600">
 
@@ -181,12 +177,14 @@ document.querySelector(".close").addEventListener("click" , ()=>{
 
 // adding event listeners to previous and next butons : 
 
-previous.addEventListener("click" , ()=> {let index = songList.indexOf(currentSong.src.split("/").slice(-1)[0]) ; 
-    console.log(songList , index ) ; 
-    playMusic(songList[(index-1)%(songList.length)]) ; 
+previous.addEventListener("click" , ()=> {let index = songList.indexOf(decodeURIComponent((currentSong.src.split("/").slice(-1)[0]))) ; 
+    if(index > 0)
+    {
+        playMusic(songList[(index-1)%(songList.length)]) ; 
+    }
+    
 })
-nextbtn.addEventListener("click" , ()=> {let index = songList.indexOf(currentSong.src.split("/").slice(-1)[0]) ; 
-    console.log(songList , index ) ; 
+nextbtn.addEventListener("click" , ()=> {let index = songList.indexOf(decodeURIComponent((currentSong.src.split("/").slice(-1)[0]))) ;  
     playMusic(songList[(index+1)%(songList.length)]) ; 
 })
 

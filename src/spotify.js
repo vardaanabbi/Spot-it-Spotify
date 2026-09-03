@@ -43,7 +43,7 @@ async function getSongs(folder) {
     <div class="songName break-all"> ${decodeURIComponent(song)}</div>
     </div> 
     <div class="playNow flex gap-3 pr-3">
-    <span class="w-10 text-sm mt-3">PlayNow</span>
+
     <img class="invert" src="/src/images/play.svg" alt="">
     </div>
     </li>`

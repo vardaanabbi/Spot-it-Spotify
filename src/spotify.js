@@ -19,7 +19,7 @@ function secondsToMinutesSeconds(seconds) {
 async function getSongs(folder) {
 
     currFolder = folder ;
-    let songs = await fetch(`/src/${currFolder}/`);
+    let songs = await fetch(`./${currFolder}/`);
     let response = await songs.text();
     // console.log(response)
     let element = document.createElement("div");
@@ -38,13 +38,13 @@ async function getSongs(folder) {
     for (const song of songList) {
         songJS.innerHTML += `<li 
     class="flex gap-3 py-3 border-white border rounded-sm my-3 justify-between">
-    <img class="invert" src="/src/images/music.svg" alt="">
+    <img class="invert" src="./images/music.svg" alt="">
     <div class="songInfo flex-1 text-sm shrink min-w-1">
     <div class="songName break-all"> ${decodeURIComponent(song)}</div>
     </div> 
     <div class="playNow flex gap-3 pr-3">
 
-    <img class="invert" src="/src/images/play.svg" alt="">
+    <img class="invert" src="./images/play.svg" alt="">
     </div>
     </li>`
 
@@ -65,7 +65,7 @@ currentSong.src = encodeURI((`${currFolder}/` + track))
 if(!pause) 
 {
 currentSong.play() ; 
-playbtn.src = "/src/images/pause.svg"
+playbtn.src = "./images/pause.svg"
 }
 
 // document.querySelector(".songInfo").innerHTML = track
@@ -74,7 +74,7 @@ document.querySelector(".songTime").innerHTML = "00 : 00"
 }
 
 async function displayAlbums() {
-    let a = await fetch("/src/songs/") ; 
+    let a = await fetch("./songs/") ; 
     let response = await a.text() ; 
     let element = document.createElement("div") ; 
     element.innerHTML = response ; 
@@ -103,7 +103,7 @@ async function displayAlbums() {
                                 </svg>
                             </div>
 
-                            <img class="object-contain w-full" src="/src/songs/${folder}/cover.jpeg" alt="">
+                            <img class="object-contain w-full" src="./songs/${folder}/cover.jpeg" alt="">
                             <h2 class="font-bold">${response.title}</h2>
                             <p>${response.description}</p>
                         </div>`
@@ -136,12 +136,12 @@ Array.from(document.getElementsByClassName("card")).forEach((e)=>{e.addEventList
     if(currentSong.paused)
     {
         currentSong.play()
-        playbtn.src = "/src/images/pause.svg"
+        playbtn.src = "./images/pause.svg"
     }
     else
     {
         currentSong.pause()
-        playbtn.src = "/src/images/play.svg"
+        playbtn.src = "./images/play.svg"
     }
 } 
 )

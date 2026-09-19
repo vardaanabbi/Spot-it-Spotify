@@ -1,3 +1,5 @@
+// global variables 
+
 let currentSong = new Audio() 
 let songList ; 
 let currFolder ; 
